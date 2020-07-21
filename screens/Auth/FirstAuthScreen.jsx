@@ -8,6 +8,7 @@ import {Ionicons, EvilIcons} from '@expo/vector-icons'
 import SignupForm from '../../components/SignupForm';
 import { ScrollView } from 'react-native-gesture-handler';
 import CustomButton from '../../components/CustomButton';
+import FormContainer from '../../components/FormContainer';
 
 const FirstAuthScreen = props =>{
     const [isLogin, setIsLogin] = useState(true);
@@ -39,18 +40,9 @@ const FirstAuthScreen = props =>{
                             </TouchableWithoutFeedback>                    
                         </View>
 
-                        <Card style = {styles.formContainer}>
+                        <FormContainer onSubmit = {onAuth}>
                             <View>{isLogin ? <LoginForm/> : <SignupForm/>}</View>
-                            <View style = {styles.arrowButtonContainer}>
-                                <TouchableWithoutFeedback onPress = {onAuth}>
-                                    <View style = {styles.arrowButton}>
-                                        <LinearGradient colors = {['#965197', '#7562EB']} style = {{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                                            <Ionicons name = 'md-arrow-forward' color = "white" size = {29} />
-                                        </LinearGradient>
-                                    </View>
-                                </TouchableWithoutFeedback>
-                            </View>
-                        </Card>
+                        </FormContainer>
 
                         <View style = {styles.bottomSection}>
                             {
@@ -97,28 +89,6 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 19,
         fontWeight: '800'
-    },
-    formContainer: {
-        marginTop: 40,
-        backgroundColor: colors.bgColor,
-        paddingHorizontal: 20,
-        paddingTop: 30,
-        paddingBottom: 50,
-        width: '100%'
-    },
-    arrowButtonContainer: {
-        position: 'absolute',
-        bottom: -33,
-        left: 0,
-        right: 0,
-        height: 66,
-        alignItems: 'center'
-    },
-    arrowButton: {
-        height: 66,
-        width: 66,
-        borderRadius: 39,
-        overflow: 'hidden',
     },
     bottomSection: {
         marginTop: 70
