@@ -8,7 +8,7 @@ const NewsCard = props =>{
     return(
         <Card style = {{...styles.card, ...props.style}}>
             <View style = {styles.imageContainer}>
-                <Image resizeMode = "cover" style = {styles.image} source = {require('../assets/images/news.jpeg')}/>
+                <Image resizeMode = "cover" style = {styles.image} source = {{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuKUOl5Fn1sYromGemj_Jt4trvb9U0Bmad0Q&usqp=CAU'}}/>
                 <ImageDarkener opacity = {0.5}/>
             </View>
             <View style = {styles.newDetails}>

@@ -60,8 +60,8 @@ const FirstAuthScreen = props =>{
                                 </>
                             :
                                 <>
-                                    <View >
-                                        <Text style = {{color: '#9393A7', marginTop: 40, textAlign: 'center'}}>By signing up, you agree to the <Text style = {{color: '#7562EB'}}>Terms & Conditions</Text> of this app.</Text>
+                                    <View style = {{flex: 1, flexDirection: 'row'}}>
+                                        <Text style = {{color: '#9393A7', alignSelf: 'flex-end', marginBottom: 10, textAlign: 'center'}}>By signing up, you agree to the <Text style = {{color: '#7562EB'}}>Terms & Conditions</Text> of this app.</Text>
                                     </View>
                                 </>
                         }</View>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         width: '89%',
-        paddingTop: 70,
+        paddingTop: '10%',
         alignItems: 'center'
     },
     formOptions: {
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
         fontWeight: '800'
     },
     bottomSection: {
-        marginTop: 70
+        marginTop: 70,
+        flex: 1
     },
     otherOptionsButtonsContainer: {
         // width: '100%',

@@ -1,14 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView, TextInput} from 'react-native'
+import { View, StyleSheet, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import colors from '../../constants/colors';
 import { useState } from 'react';
-import Card from '../../components/Card';
 import FormContainer from '../../components/FormContainer';
 import AuthFormInput from '../../components/AuthFormInput';
 
 const RecieverDetailsScreen = props =>{
-    const [amount, setAmount] = useState('233.34');
+    const [amount, setAmount] = useState('12000.00');
 
     const textChangeHandler = (text) =>{
         if(isNaN(text))return;
@@ -27,34 +26,36 @@ const RecieverDetailsScreen = props =>{
 
     return(
         <LinearGradient colors = {[colors.bgColor, '#1B1B23']} style = {styles.screen}>
-            <ScrollView style = {{flex: 1}}>
-                <View style = {styles.balanceContainer}>
-                    <Text style = {styles.labelText}>Enter Amount</Text>
-                    <View style = {styles.amountContainer}>
-                    <Text style = {styles.amountText} >$</Text>                        
-                    <TextInput 
-                        style = {{...styles.amountText, ...styles.amountInput}} 
-                        value = {amount} 
-                        onChangeText = {textChangeHandler}
-                        keyboardType = "numeric"
-                    />                        
+            <KeyboardAvoidingView style = {{flex: 1}}>
+                <ScrollView style = {{flex: 1, width: '100%'}}>
+                    <View style = {styles.balanceContainer}>
+                        <Text style = {styles.labelText}>Enter Amount</Text>
+                        <View style = {styles.amountContainer}>
+                        <Text style = {styles.amountText} >$</Text>                        
+                        <TextInput 
+                            style = {{...styles.amountText, ...styles.amountInput}} 
+                            value = {amount} 
+                            onChangeText = {textChangeHandler}
+                            keyboardType = "numeric"
+                        />                        
+                        </View>
                     </View>
-                </View>
-                <FormContainer onSubmit = {onProceed}>
-                <AuthFormInput
-                    placeholder = "Bank Name"
-                />
-                <AuthFormInput
-                    placeholder = "Account Number"
-                />
-                <AuthFormInput
-                    placeholder = "Account Name"
-                />
-                <AuthFormInput
-                    placeholder = "Description"
-                />
-                </FormContainer>
-            </ScrollView>
+                    <FormContainer style = {styles.form} onSubmit = {onProceed}>
+                    <AuthFormInput
+                        placeholder = "Bank Name"
+                    />
+                    <AuthFormInput
+                        placeholder = "Account Number"
+                    />
+                    <AuthFormInput
+                        placeholder = "Account Name"
+                    />
+                    <AuthFormInput
+                        placeholder = "Description"
+                    />
+                    </FormContainer>
+                </ScrollView>
+            </KeyboardAvoidingView>
         </LinearGradient>
     )
 }
@@ -72,7 +73,6 @@ const styles = StyleSheet.create({
     },
     balanceContainer: {
         paddingTop: 20,
-        paddingBottom: 20,
         width: '100%',
         alignItems: 'center'
     },
@@ -94,6 +94,12 @@ const styles = StyleSheet.create({
     amountInput:{
         minWidth: 100,
         borderBottomWidth: 1,
+    },
+    form: {
+        marginTop: 35,
+        marginBottom: 60,
+        flex: 1,
+        paddingBottom: 40
     }
 })
 

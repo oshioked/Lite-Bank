@@ -9,7 +9,7 @@ const TransactionCard = props =>{
         <Card style = {{...styles.transactCard, ...props.style}}>
             <TouchableOpacity onPress = {props.onPress} style = {styles.contentContainer}>
                 <Ionicons name = {props.iconName} size = {24} color = '#9D60D5'/>
-                <Text style = {{color: 'white', width: '65%', textAlign: 'left', opacity: 0.6}}>{props.transactionName}</Text>
+                <Text numberOfLines = {1} style = {{color: 'white', width: '65%', textAlign: 'left', opacity: 0.6}}>{props.transactionName}</Text>
             </TouchableOpacity>
         </Card>
     )

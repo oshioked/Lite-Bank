@@ -9,6 +9,9 @@ import colors from '../constants/colors';
 import NotificationScreen from '../screens/Notification/NotificationScreen';
 import RecieverDetailsScreen from '../screens/Send/RecieverDetailsScreen';
 import ConfirmDetailsScreen from '../screens/Send/ConfirmDetailsScreen';
+import {HomeTabIcon, NotificationTabIcon, MoreTabIcon, StatsTabIcon} from '../components/TabBarIcons'
+import MoreScreen from '../screens/More/MoreScreen';
+import StatsScreen from '../screens/StatsScreen';
 
 const defaultStackNavOption = {
     headerTintColor: 'white',
@@ -33,6 +36,31 @@ const HomeNavigator = createStackNavigator({
 },{
     defaultNavigationOptions: {
         ...defaultStackNavOption
+    },
+    navigationOptions:{
+        tabBarIcon: HomeTabIcon
+    }
+})
+
+const StatsNavigator = createStackNavigator({
+    Stats: StatsScreen
+}, {
+    defaultNavigationOptions: {
+        ...defaultStackNavOption
+    }, 
+    navigationOptions: {
+        tabBarIcon: StatsTabIcon
+    }
+})
+
+const MoreNavigator = createStackNavigator({
+    More: MoreScreen
+}, {
+    defaultNavigationOptions: {
+        ...defaultStackNavOption,
+    },
+    navigationOptions: {
+        tabBarIcon: MoreTabIcon
     }
 })
 
@@ -42,15 +70,21 @@ const NotificaitionNavigator = createStackNavigator({
     defaultNavigationOptions: {
         ...defaultStackNavOption,
         headerTitle: 'Notification'
+    },
+    navigationOptions:{
+        tabBarIcon: NotificationTabIcon
     }
 })
 
 const TabNavigator = createBottomTabNavigator({
     Home: HomeNavigator,
-    Notification: NotificaitionNavigator
+    Statistics: StatsNavigator,
+    Notification: NotificaitionNavigator,
+    More: MoreNavigator
 },{
     tabBarOptions: {
         showLabel: true,
+        // labelPosition: 'beside-icon',
         activeTintColor: '#7562EB',
         tabStyle: {
             height: '100%'
@@ -59,14 +93,13 @@ const TabNavigator = createBottomTabNavigator({
         style:{
             backgroundColor: colors.bgColor,
             borderTopWidth: 0,
-            maxHeight: 50,
-            paddingVertical: 'auto',
-            marginTop: 10,
-            marginHorizontal: 20,
-            shadowOpacity: 0,
-            elevation: 0,
-            borderRadius: 10,
-            alignItems: 'center'
+            height: 55,
+            borderRadius: 15,
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+            paddingVertical: 6,
+            alignItems: 'center',
+            justifyContent: 'center'
         }
     }
 })

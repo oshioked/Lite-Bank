@@ -12,7 +12,7 @@ const NotificationCard = props =>{
                 <Ionicons color = 'white' name = "ios-send" size = {25}/>
             </Card>
             <View style = {styles.detailsContainer}>
-                <Text style = {{color: 'white', opacity: 0.7, fontSize: 18, fontWeight: '600', marginBottom: 5}}>Transfered Money to Merry Bet</Text>
+                <Text style = {{color: 'white', opacity: 0.7, fontSize: 17, marginBottom: 5}}>Transfered Money to Merry Bet</Text>
                 <Text style = {{color: 'white', opacity: 0.5}}>08:56PM</Text>
             </View>
         </View>
@@ -22,14 +22,14 @@ const NotificationCard = props =>{
 const styles = StyleSheet.create({
     card: {
         borderBottomWidth: 1,
-        borderColor: '#3a3a3a',
+        borderColor: "#4848484d",
         flexDirection: 'row',
         paddingHorizontal: 20,
-        paddingVertical: 20
+        paddingVertical: 17
     },
     iconContainer:{
         marginRight: 20,
-        opacity: 0.7,
+        opacity: 0.4,
         backgroundColor: colors.bgColor,
         height: 55,
         width: 55,

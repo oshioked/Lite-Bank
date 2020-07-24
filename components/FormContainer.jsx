@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
+import { View, StyleSheet } from 'react-native';
 import colors from '../constants/colors';
 import Card from './Card';
-import { LinearGradient } from 'expo-linear-gradient';
 import CircularButton from './CircularButton';
 
 const FormContainer = props =>{
     return(
-        <Card style = {styles.formContainer}>
+        <Card style = {{...styles.formContainer, ...props.style}}>
             {props.children}
             <View style = {styles.arrowButtonContainer}>
                 <CircularButton onPress = {props.onSubmit} iconName = {props.buttonIconName}/>
